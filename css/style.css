@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    font-size: 12px;
+background-color: aqua;
+width: 200px;
+height: 30px;
+text-align: center;
+line-height: 30px;
+margin: 10px auto;
+border: 1px solid blue;
+border-radius: 10px;
+}
+
+.cal{
+    background-color: aqua;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid blue;
+    border-radius: 10px;
+}
