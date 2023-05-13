@@ -5,14 +5,14 @@
 
 h1{
     font-size: 12px;
-background-color: aqua;
-width: 200px;
-height: 30px;
-text-align: center;
-line-height: 30px;
-margin: 10px auto;
-border: 1px solid blue;
-border-radius: 10px;
+    background-color: aqua;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 .cal{
@@ -21,6 +21,6 @@ border-radius: 10px;
     height: auto;
     text-align: center;
     margin: 0 auto;
-    border: 1px solid blue;
+    border: 1px solid black;
     border-radius: 10px;
 }
