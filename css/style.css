@@ -4,23 +4,28 @@
 }
 
 h1{
-    font-size: 12px;
+    font-size: 15px;
     background-color: aqua;
-    width: 200px;
+    width: 100px;
     height: 30px;
     text-align: center;
     line-height: 30px;
-    margin: 10px auto;
+    margin: 5px auto;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
+}
+
+input{
+    width: 60px;
+    text-align: right;
 }
 
 .cal{
     background-color: aqua;
-    width: 200px;
+    width: 100px;
     height: auto;
     text-align: center;
     margin: 0 auto;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
 }
