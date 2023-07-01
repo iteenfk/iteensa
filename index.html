@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>西暦変換</title>
+    <title>iteen音楽player</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>西暦への変換</h1>
     <div class="main">
+        <audio id="player" src="test.mp3"></audio>
+        <h1>iteen 音楽player</h1>
 
-      <p>令和の年:</p>
-      <select id="year-select">
-          <option value="1">令和元年</option>
-          <option value="2">令和2年</option>
-          <option value="3">令和3年</option>
-          <option value="4">令和4年</option>
-          <option value="5">令和5年</option>
-          <option value="6">令和6年</option>
-          <option value="7">令和7年</option>
-          <option value="8">令和8年</option>
-          <option value="9">令和9年</option>
-          <option value="10">令和10年</option>
-    </select>
+        <div class="btn">
+            <button onclick="play()">再生</button>
+            <button onclick="pause()">一時停止</button>
+            <button onclick="stop()">停止</button>
+        </div>
+        <br>
+        <div class="in">
+            <input type="range" id="slider" oninput="volume()" min="0" max="100" value="50">
+            <p id="vol">50%</p>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
 
-<button onclick="convertYear()">西暦変換(令和)</button>
-<div id="result"></div>
-</div>
-<script src="js/main.js"></script>
 </body>
 </html>

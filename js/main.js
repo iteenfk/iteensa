@@ -1,9 +1,31 @@
 "use strict"
 
-function convertYear() {
-    const yearSelect = document.getElementById("year-select");
-    const selectedYear = parseInt(yearSelect.value);
-    const westernYear = selectedYear + 2018;
-    const resultDiv = document.getElementById("result");
-    resultDiv.textContent = "西暦: " + westernYear + "年";
+const volumeSlider = document.getElementById("slider");
+
+const volumeValue = document.getElementById("vol");
+
+const audio = document.getElementById("player");
+
+function volume(){
+    const value = volumeSlider.value;
+    volumeValue.textContent = value +  "%"
+
+
+    audio.volume = value /100;
+
 }
+
+function play() {
+    audio.play();
+}
+
+function pause() {
+    audio.pause();
+}
+
+
+function stop(){
+    audio.pause();
+    audio.currentTime = 0;
+}
+
