@@ -1,29 +1,51 @@
-<!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iteen音楽player</title>
-    <link rel="stylesheet" href="css/style.css">
+<title>selectの学習</title>
+<style>
+.main{
+border:1px solid red;
+width:300px;
+text-align:center;
+padding-top:20px;
+margin:auto;
+border-radius:20px;
+}
+
+h1{
+font-size:20px;
+text-align:center;
+}
+</style>
+
 </head>
 <body>
-    <div class="main">
-        <audio id="player" src="test.mp3"></audio>
-        <h1>iteen 音楽player</h1>
+<h1>selectの学習</h1>
+<div class="main">
+<select id="in" onchange="A()">
+<option value="">九州の県の選択</option>
+<option value="1">福岡県</option>
+<option value="2">佐賀県</option>
+<option value="3">長崎県</option>
+</select>
 
-        <div class="btn">
-            <button onclick="play()">再生</button>
-            <button onclick="pause()">一時停止</button>
-            <button onclick="stop()">停止</button>
-        </div>
-        <br>
-        <div class="in">
-            <input type="range" id="slider" oninput="volume()" min="0" max="100" value="50">
-            <p id="vol">50%</p>
-        </div>
-    </div>
-    
-    <script src="js/main.js"></script>
+<p id="out">各県の名産</p>
+</div>
+<script>
+function A(){
+if (document.getElementById("in").value == "1"){
+document.getElementById("out").textContent = "とんこつラーメン";
+}
 
+if (document.getElementById("in").value == "2"){
+document.getElementById("out").textContent = "羊羹";
+}
+
+if (document.getElementById("in").value == "3"){
+document.getElementById("out").textContent = "ちゃんぽん";
+}
+
+}
+
+</script>
 </body>
 </html>
