@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>selectの学習</title>
+<title>RadioboxとSlider</title>
 <style>
 .main{
 border:1px solid red;
@@ -12,40 +12,39 @@ border-radius:20px;
 }
 
 h1{
-font-size:20px;
+font-size:15px;
 text-align:center;
 }
-</style>
 
+</style>
 </head>
 <body>
-<h1>selectの学習</h1>
+<h1>RadioboxとSliderの練習問題</h1>
+
 <div class="main">
-<select id="in" onchange="A()">
-<option value="">九州の県の選択</option>
-<option value="1">福岡県</option>
-<option value="2">佐賀県</option>
-<option value="3">長崎県</option>
-</select>
+25:<input type="radio" name="radiobox" value="25" id="r1" onchange="R()">
+75:<input type="radio" name="radiobox" value="75" id="r2" onchange="R()">
+<br><br>
+<input type="range" min="0" max="100" value="25" id="s" oninput="S()">
 
-<p id="out">各県の名産</p>
+<p id="out">25</p>
 </div>
+
 <script>
-function A(){
-if (document.getElementById("in").value == "1"){
-document.getElementById("out").textContent = "とんこつラーメン";
+function S(){
+document.getElementById("out").textContent = document.getElementById("s").value;
 }
 
-if (document.getElementById("in").value == "2"){
-document.getElementById("out").textContent = "羊羹";
+function R(){
+if (document.getElementById("r1").checked){
+document.getElementById("out").textContent = document.getElementById("r1").value;
 }
 
-if (document.getElementById("in").value == "3"){
-document.getElementById("out").textContent = "ちゃんぽん";
+if (document.getElementById("r2").checked){
+document.getElementById("out").textContent = document.getElementById("r2").value;
 }
 
 }
-
 </script>
 </body>
 </html>
