@@ -1,8 +1,13 @@
 <html>
 <head>
-<title>勉強達成計画アプリ</title>
+<title>9-16</title>
 <style>
 h1{
+font-size:20px;
+text-align:center;
+}
+
+p{
 text-align:center;
 }
 
@@ -10,43 +15,52 @@ text-align:center;
 text-align:center;
 }
 
-ul{
-text-align:center;
-list-style-type; none;
-}
 </style>
 </head>
 <body>
-<h1>勉強達成計画アプリ</h1>
+<h1>日時表示アプリ</h1>
+
 <div class="x">
-達成目標:<input ttype="text" id="inte">
-目標カレンダー:<input type="date" id="inda">
-<button  onclick="A()">追加</button>
-<button onclick="C()">クリア</button>
-<button onclick="P()">PDF印刷</button>
+<p id="out">表示</p>
+<button onclick="B()">クリック</button>
 </div>
-<ul id="out">目標計画一覧</ul>
 
 <script>
-function A(){
-const inte = document.getElementById("inte").value;
-const inda = document.getElementById("inda").value;
-if (inte != "" && inda != ""){
-const li = document.createElement("li");
-li.textContent = `${inda}までに${inte}`
-document.getElementById("out").appendChild(li);
-document.getElementById("inte").value = "";
-document.getElementById("inda").value = "";
 
-}
-}
+function B(){
 
-function C(){
-location.reload();
-}
 
-function P(){
-window.print();
+const now = new Date();
+
+const year = now.getFullYear();
+const month = now.getMonth()+1;
+const daye = now.getDate();
+let day = now.getDay();
+const hour = now.getHours();
+const minutes = now.getMinutes();
+const seconds = now.getSeconds();
+if (day == 6){
+   day = "土";
+}
+if (day == 5){
+   day = "金"
+}
+if (day == 4){
+   day = "木"
+}
+if (day == 3){
+   day = "水"
+}
+if (day == 2){
+   day = "火"
+}
+if (day == 1){
+   day = "月"
+}
+if (day == 7){
+   day = "日"
+}
+document.getElementById("out").textContent = `${year}年${month}月${daye}日(${day})${hour}時${minutes}分${seconds}秒`;
 }
 </script>
 </body>
