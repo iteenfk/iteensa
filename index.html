@@ -15,19 +15,49 @@ text-align:center;
 text-align:center;
 }
 
+.qr_c{
+text-align:center
+}
+input{
+width:50px;
+}
+.in_c{
+text-align:center
+}
 </style>
 </head>
 <body>
+<audio src="alert.mp3" id="alert_id"></audio>
 <h1>日時表示アプリ</h1>
+<div class="in_c">
+アラーム時間：<input type="number" id="in_h">時<input type="number" id="in_m">分<input type="number" id="in_s">秒;
+</div> 
 
 <div class="x">
 <p id="out">表示</p>
-<button onclick="B()">クリック</button>
+<button onclick="start()">開始</button>
+<button onclick="stop()">停止</button>
+<button onclick="clear_btn()">クリア</button>
 </div>
-
+<div class="qr_c">
+<img src="qr.png">
+</div>
 <script>
 
-function B(){
+let t = null;
+function start(){
+t = setInterval(B, 1000);
+}
+
+function stop(){
+clearInterval(t);
+}
+
+function clear_btn(){
+location.reload();
+}
+
+function 	B(){
 
 
 const now = new Date();
@@ -61,6 +91,15 @@ if (day == 7){
    day = "日"
 }
 document.getElementById("out").textContent = `${year}年${month}月${daye}日(${day})${hour}時${minutes}分${seconds}秒`;
+const alert = document.getElementById("alert_id");
+const hour_a =document.getElementById("in_h").value;
+const minutes_a =document.getElementById("in_m").value;
+const seconds_a =document.getElementById("in_s").value;
+
+if (hour == hour_a && minutes == minutes_a && seconds == seconds_a){
+   alert.play();
+}
+
 }
 </script>
 </body>
