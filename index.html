@@ -1,58 +1,73 @@
 <html>
 <head>
-<title>10/21 QRCode</title>
-<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js">
-</script>
+<title>11/4</title>
 <style>
-.dsp_c{
+.box_c{
+width:300px;
+height:300px;
+background-color:yellow;
 border:1px solid black;
-text-align:center;
-width:400px;
-margin:auto;
+border-radius:10px;
+overflow:hidden;
+margin:auto
 }
-
+.text_c{
+text-align:center;
+margin:300px auto;
+}
 h1{
 text-align:center;
 }
-.output_c{
+.btn_c{
 text-align:center;
-}
-#output_id{
-display:inline-block;
+margin:10px;
 }
 </style>
 </head>
 <body>
+<h1>JavaScriptスクロール</h1>
+<div class="box_c" id="box_id">
+<p class="text_c">
+ああああああああああ<br>
+いいいいいいいいいい<br>
+ああああああああああ<br>
+いいいいいいいいいい<br>
+ああああああああああ<br>
+いいいいいいいいいい<br>
+</p>
+</div>
 
-<h1>QRCodeを作成</h1>
-<div class="dsp_c">
-url:<input type="text" id="url_id" value="https://google.co.jp"></input><br>
-サイズ:<input type="text" id="size_id"></input><br>
-前景色<input type="text" id="fore_id"></input><br>
-背景色:<input type="text" id="back_id"></input><br>
-<button onclick="btn()">作成</button>
+<div class="btn_c">
+<button onclick="start()">開始</button>
+<button onclick="stop()">停止</button>
 </div>
-<div class="output_c">
-<p id="output_id"></p>
-</div>
+
 <script>
+const box = document.getElementById("box_id");
+let scroll = 0;
+let t = null;
 
-function btn(){
-const url = document.getElementById("url_id").value;
-const size = document.getElementById("size_id").value;
-const fore = document.getElementById("fore_id").value;
-const back = document.getElementById("back_id").value;
 
-const output = document.getElementById("output_id");
-const opt = {text:url,
-           width:size,
-           height:size,
-           colorDark:fore,
-           colorLight:back, 
-          }
-new QRCode(output,opt);
+function start(){
+clearInterval(t)
+t = setInterval(auto,50);
 }
-</script>
 
+function stop(){
+clearInterval(t)
+}
+
+function auto(){
+box.scrollTop = scroll;
+if (box.scrollTop < box.scrollHeight - box.clientHeight){
+   scroll = scroll + 1;
+}else{
+   scroll = 0;
+   scrollTop = 0;
+}
+
+}
+
+</script>
 </body>
 </html>
