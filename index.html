@@ -1,69 +1,52 @@
 <html>
 <head>
-<title>11/4</title>
+<title>11-26</title>
 <style>
-.box_c{
-width:300px;
-height:300px;
-background-color:yellow;
-border:1px solid black;
-border-radius:10px;
-overflow:hidden;
-margin:auto
-}
-.text_c{
+body{
 text-align:center;
-margin:300px auto;
-}
-h1{
-text-align:center;
-}
-.btn_c{
-text-align:center;
-margin:10px;
 }
 </style>
 </head>
 <body>
-<h1>JavaScriptスクロール</h1>
-<div class="box_c" id="box_id">
-<p class="text_c">
-ああああああああああ<br>
-いいいいいいいいいい<br>
-ああああああああああ<br>
-いいいいいいいいいい<br>
-ああああああああああ<br>
-いいいいいいいいいい<br>
-</p>
-</div>
-
-<div class="btn_c">
-<button onclick="start()">開始</button>
-<button onclick="stop()">停止</button>
+<h1>好きな言語を選択してください。</h1>
+<input type="radio" name="language" value="javascript">javascript
+<input type="radio" name="language" value="python">python
+<input type="radio" name="language" value="scratch">scratch
+<br>
+<button onclick="btn()">クリック</button>
+<div id="output_id"></div>
+<div id="img_id">
 </div>
 
 <script>
-const box = document.getElementById("box_id");
-let scroll = 0;
-let t = null;
+function btn(){
+const output = document.getElementById("output_id");
+const img = document.getElementById("img_id");
+const languages = document.getElementsByName("language");
+console.log(languages);
 
+for (let i = 0; i < 3; i++){
+const language = languages[i].value;
+if (languages[i].checked == true){
+output.textContent = "好きな言語は"+language+"です。";
 
-function start(){
-clearInterval(t)
-t = setInterval(auto,50);
+let src = "";
+if (language == "javascript"){
+src = "javascript.png";
+}
+if (language == "python"){
+src = "python.png";
+}
+if (language == "scratch"){
+src = "scratch.jpg";
 }
 
-function stop(){
-clearInterval(t)
+const img_t = document.createElement("img");
+img_t.src = src;
+img_t.width = 300;
+img.innerHTML = "";
+img.appendChild(img_t);
 }
-
-function auto(){
-box.scrollTop = scroll;
-if (box.scrollTop < box.scrollHeight - box.clientHeight){
-   scroll = scroll + 1;
-}else{
-   scroll = 0;
-   scrollTop = 0;
 }
 
 }
