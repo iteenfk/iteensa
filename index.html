@@ -1,56 +1,66 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-<title>11-26</title>
-<style>
-body{
-text-align:center;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-30</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #table_id{
+            margin: auto;
+        }
+        th,td{
+            border: 1px solid black;
+        }
+        table{
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
-<h1>好きな言語を選択してください。</h1>
-<input type="radio" name="language" value="javascript">javascript
-<input type="radio" name="language" value="python">python
-<input type="radio" name="language" value="scratch">scratch
-<br>
-<button onclick="btn()">クリック</button>
-<div id="output_id"></div>
-<div id="img_id">
-</div>
+    データ1: <input type="text" name="input"><br>
+    データ2: <input type="text" name="input"><br>
+    データ3: <input type="text" name="input"><br>
+    <table id="table_id">
+        <tr>
+            <th>データ１</th>
+            <th>データ２</th>
+            <th>データ３</th>
+        </tr>
+    </table>
+    <button onclick="btn()">data追加</button>
+    <script>
+        function btn(){
+            const inputs = document.getElementsByName("input");
+            console.log(inputs);
+            
+            const data1 = inputs[0].value.trim();
+            const data2 = inputs[1].value.trim();
+            const data3 = inputs[2].value.trim();
 
-<script>
-function btn(){
-const output = document.getElementById("output_id");
-const img = document.getElementById("img_id");
-const languages = document.getElementsByName("language");
-console.log(languages);
-
-for (let i = 0; i < 3; i++){
-const language = languages[i].value;
-if (languages[i].checked == true){
-output.textContent = "好きな言語は"+language+"です。";
-
-let src = "";
-if (language == "javascript"){
-src = "javascript.png";
-}
-if (language == "python"){
-src = "python.png";
-}
-if (language == "scratch"){
-src = "scratch.jpg";
-}
-
-const img_t = document.createElement("img");
-img_t.src = src;
-img_t.width = 300;
-img.innerHTML = "";
-img.appendChild(img_t);
-}
-}
-
-}
-
-</script>
+            if (data1 != "" && data2 != "" && data3 != ""){
+                const table = document.getElementById("table_id");
+                const tr = document.createElement("tr");
+                const td1 = document.createElement("td");
+            
+                td1.textContent = data1;
+                tr.appendChild(td1);
+                const td2 = document.createElement("td");
+                td2.textContent = data2;
+                tr.appendChild(td2);
+                const td3 = document.createElement("td");
+                td3.textContent = data3;
+                tr.appendChild(td3);
+        
+                table.appendChild(tr);
+    
+                inputs[0].value = "";
+                inputs[1].value = "";
+                inputs[2].value = "";
+            }
+        }
+    </script>
 </body>
 </html>
